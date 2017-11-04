@@ -8,34 +8,6 @@ write_debug_bool = True
 filename_raw = "test.csv"
 filename_out = "clean_test.csv"
 
-try:
-    slack_token = os.environ['SLACK_API_TOKEN']
-    sc = SlackClient(slack_token)
-except:
-    print("Could not find slack API token on this machine.")
-    print("Aborting.")
-    sys.exit()
-
-def write_debug(in_string):
-    if(write_debug_bool):
-        print("DEBUG: " + str(in_string))
-
-def send_bash_command(bashCommand):
-    # print bashCommand
-    write_debug(bashCommand)
-    process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE) #, stderr=subprocess.PIPE)
-    # print process
-    output = process.communicate()[0]
-    # print output
-    return output
-
-# Note the start time.
-
-# Run check_links.sh
-command = "bash /home/pi/SlackLinkChecker/check_links.sh"
-send_bash_command(command)
-
-
 # Filter for things we don't want to show up.
 # Return True if we find something we don't want
 # Return False if we find somethign we DO want
@@ -62,19 +34,10 @@ with open(filename_out, "w") as f:
     for each in data_out:
         f.write(str(each)+"\n")
 
+# print data_out
+
 # Note the end time.
 
 # Count the number of lines in the file.
 
 # Post the file, number of lines in the file to slack.s
-
-
-# Upload a file
-command = "curl -F file=@" + filename_out + " -F title='Hello!' -F content='Hello' -F channels=#website-broken-links -F token=" + slack_token +" https://slack.com/api/files.upload"
-send_bash_command(command)
-
-sc.api_call(
-  "chat.postMessage",
-  channel="#website-broken-links",
-  text="The Data I'm Sending."
-)

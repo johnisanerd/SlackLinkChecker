@@ -9,5 +9,6 @@ Send regular updates about crawl status of our website and where there are broke
 
 Todo:
 * [x] Add install for [wummel/linkchecker](https://github.com/wummel/linkchecker)
-* [x] Add install for [slackapi/python-slackclient](https://github.com/slackapi/python-slackclient)
-* [ ] Change course from python-slackclient to [slacker](https://github.com/os/slacker) so you can upload csv files?  Or do we want to make a URL with NGROK and a webpage of the results?
+* [x] Add instalcurl -F file=@test.csv -F ti/api/files.uploadontent="Hello" -F channels=#website-broken-links -F token=$SLACK_API_TOKEN https://slack.com/
+l for [slackapi/python-slackclient](https://github.com/slackapi/python-slackclient)
+* [ ] For Upload use the command `curl -F file=@test.csv -F title="Hello!" -F content="Hello" -F channels=#website-broken-links -F token=$SLACK_API_TOKEN https://slack.com/api/files.upload `  [Source](https://api.slack.com/methods/files.upload)

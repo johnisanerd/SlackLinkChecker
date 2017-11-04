@@ -7,7 +7,9 @@
 # NOT USING --verbose     --> Log all checked URLs. Default is to log only errors and warnings.
 # --threads=100 --> Start 100 threads
 # --ignore-url=/xmlrpc.php --> Ignore the xmlrpc.php file it's a wordpress thing.
-# --ignore-url=^mailto:     --> Ingore all mailto stuff on our website.  
+# --ignore-url=^mailto     --> Ingore all mailto stuff on our website.
+# --ignore-url=^/add-to-cart
 # Pipe it all into test.csv
 
-linkchecker www.dexterindustries.com --check-css --check-html --complete --threads=100 --ignore-url=/xmlrpc.php --ignore-url=^mailto: -ocsv > test.csv
+# linkchecker www.dexterindustries.com --check-css --check-html --complete --threads=25 --ignore-url=/xmlrpc.php --ignore-url=^mailto --ignore-url=/add-to-cart -ocsv > test.csv
+linkchecker www.dexterindustries.com --threads=25 --ignore-url=/xmlrpc.php --ignore-url=^mailto --ignore-url=/add-to-cart -ocsv > test.csv
