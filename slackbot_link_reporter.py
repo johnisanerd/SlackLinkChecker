@@ -1,5 +1,5 @@
 from slackclient import SlackClient
-import os, sys, datetime
+import os, sys, datetime, time
 import csv
 import subprocess
 
@@ -21,20 +21,19 @@ def write_debug(in_string):
         print("DEBUG: " + str(in_string))
 
 def send_bash_command(bashCommand):
-    # print bashCommand
     write_debug(bashCommand)
     process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE) #, stderr=subprocess.PIPE)
-    # print process
     output = process.communicate()[0]
-    # print output
     return output
 
 # Note the start time.
+time_start = time.time()
+print("Time in seconds since the epoch: %s" %time.time())
+
 
 # Run check_links.sh
 command = "bash /home/pi/SlackLinkChecker/check_links.sh"
 send_bash_command(command)
-
 
 # Filter for things we don't want to show up.
 # Return True if we find something we don't want
@@ -62,7 +61,12 @@ with open(filename_out, "w") as f:
     for each in data_out:
         f.write(str(each)+"\n")
 
-# Note the end time.
+# Note the start time.
+end_time = time.time()
+print("Time in seconds since the epoch: %s" %time.time())
+
+total_time = end_time - time_start
+print("Total crawl time (s) was: %s" %total_time)
 
 # Count the number of lines in the file.
 
@@ -73,8 +77,10 @@ with open(filename_out, "w") as f:
 command = "curl -F file=@" + filename_out + " -F title='Hello!' -F content='Hello' -F channels=#website-broken-links -F token=" + slack_token +" https://slack.com/api/files.upload"
 send_bash_command(command)
 
+text_for_chat = "Total time to run crawl: " + str(total_time)
+
 sc.api_call(
   "chat.postMessage",
   channel="#website-broken-links",
-  text="The Data I'm Sending."
+  text=text_for_chat
 )
