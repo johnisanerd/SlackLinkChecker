@@ -13,5 +13,12 @@
 # --no-warnings       Don't log warnings. Default is to log warnings.
 # Pipe it all into test.csv
 
+
 # linkchecker www.dexterindustries.com --check-css --check-html --complete --threads=25 --ignore-url=/xmlrpc.php --ignore-url=^mailto --ignore-url=/add-to-cart -ocsv > test.csv
-linkchecker www.dexterindustries.com --threads=25 --complete --no-status --no-warnings --ignore-url=/xmlrpc.php --ignore-url=^mailto --ignore-url=/add-to-cart -ocsv > test.csv
+# linkchecker www.dexterindustries.com --threads=25 --complete --no-status --no-warnings --ignore-url=/xmlrpc.php --ignore-url=^mailto --ignore-url=/add-to-cart -ocsv > test.csv
+# linkchecker www.dexterindustries.com --threads=25 --complete --no-status --ignore-url=/xmlrpc.php --ignore-url=^mailto --ignore-url=/add-to-cart -ocsv > test.csv
+# linkchecker www.dexterindustries.com --threads=25 --complete --ignore-url=/xmlrpc.php --ignore-url=^mailto --ignore-url=/add-to-cart -ocsv > test.csv
+# linkchecker www.dexterindustries.com --threads=25 --no-status --no-warning --ignore-url=/xmlrpc.php --ignore-url=^mailto --ignore-url=/add-to-cart -ocsv > test.csv
+
+
+linkchecker www.dexterindustries.com --threads=25 --complete --ignore-url=/xmlrpc.php --ignore-url=^mailto --ignore-url=/add-to-cart -ocsv > test.csv
