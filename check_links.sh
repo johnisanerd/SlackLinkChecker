@@ -21,4 +21,4 @@
 # linkchecker www.dexterindustries.com --threads=25 --no-status --no-warning --ignore-url=/xmlrpc.php --ignore-url=^mailto --ignore-url=/add-to-cart -ocsv > test.csv
 
 
-linkchecker www.dexterindustries.com --threads=25 --complete --ignore-url=/xmlrpc.php --ignore-url=^mailto --ignore-url=/add-to-cart -ocsv > test.csv
+linkchecker www.dexterindustries.com --complete --ignore-url=/xmlrpc.php --ignore-url=^mailto --ignore-url=/add-to-cart -ocsv > test.csv
