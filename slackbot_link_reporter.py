@@ -2,6 +2,7 @@ from slackclient import SlackClient
 import os, sys, datetime, time
 import csv
 import subprocess
+import fileinput
 
 write_debug_bool = True
 
@@ -61,6 +62,14 @@ with open(filename_out, "w") as f:
     for each in data_out:
         f.write(str(each)+"\n")
 
+# Clean out all the duplicates.
+seen = set() # set for fast O(1) amortized lookup
+for line in fileinput.FileInput(filename_out, inplace=1):
+    if line in seen: continue # skip duplicate
+
+    seen.add(line)
+    print line, # standard output is now redirected to the file
+
 # Note the start time.
 end_time = time.time()
 print("Time in seconds since the epoch: %s" %time.time())
@@ -71,7 +80,6 @@ print("Total crawl time (s) was: %s" %total_time)
 # Count the number of lines in the file.
 
 # Post the file, number of lines in the file to slack.s
-
 
 # Upload a file
 command = "curl -F file=@" + filename_out + " -F title='Hello!' -F content='Hello' -F channels=#website-broken-links -F token=" + slack_token +" https://slack.com/api/files.upload"

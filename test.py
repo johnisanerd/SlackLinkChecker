@@ -3,6 +3,8 @@ import os, sys, datetime
 import csv
 import subprocess
 
+import fileinput
+
 write_debug_bool = True
 
 filename_raw = "test.csv"
@@ -34,10 +36,10 @@ with open(filename_out, "w") as f:
     for each in data_out:
         f.write(str(each)+"\n")
 
-# print data_out
 
-# Note the end time.
+seen = set() # set for fast O(1) amortized lookup
+for line in fileinput.FileInput(filename_out, inplace=1):
+    if line in seen: continue # skip duplicate
 
-# Count the number of lines in the file.
-
-# Post the file, number of lines in the file to slack.s
+    seen.add(line)
+    print line, # standard output is now redirected to the file
