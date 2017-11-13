@@ -101,4 +101,5 @@ ENV/
 .mypy_cache/
 
 .ftpconfig
-test.csv
+*.csv
+*.bkp

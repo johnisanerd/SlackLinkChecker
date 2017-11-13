@@ -2,6 +2,9 @@ from slackclient import SlackClient
 import os, sys, datetime
 import csv
 import subprocess
+from time import sleep
+import time
+
 
 import fileinput
 
@@ -10,6 +13,7 @@ write_debug_bool = True
 filename_raw = "test.csv"
 filename_out = "clean_test.csv"
 
+'''
 # Filter for things we don't want to show up.
 # Return True if we find something we don't want
 # Return False if we find somethign we DO want
@@ -43,3 +47,17 @@ for line in fileinput.FileInput(filename_out, inplace=1):
 
     seen.add(line)
     print line, # standard output is now redirected to the file
+'''
+
+# Note the start time.
+time_start = time.time()
+print("Time in seconds since the epoch: %s" %time.time())
+
+# Note the start time.
+end_time = time.time()
+print("Time in seconds since the epoch: %s" %time.time())
+
+total_time = end_time - time_start
+total_time = 80000
+hours = total_time // (60*60)
+print("Total crawl time (h) was: %s" %hours)

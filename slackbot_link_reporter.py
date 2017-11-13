@@ -75,7 +75,8 @@ end_time = time.time()
 print("Time in seconds since the epoch: %s" %time.time())
 
 total_time = end_time - time_start
-print("Total crawl time (s) was: %s" %total_time)
+total_time = total_time // (60*60)
+print("Total crawl time (h) was: %s" %total_time)
 
 # Count the number of lines in the file.
 
@@ -85,7 +86,7 @@ print("Total crawl time (s) was: %s" %total_time)
 command = "curl -F file=@" + filename_out + " -F title='Hello!' -F content='Hello' -F channels=#website-broken-links -F token=" + slack_token +" https://slack.com/api/files.upload"
 send_bash_command(command)
 
-text_for_chat = "Total time to run crawl: " + str(total_time)
+text_for_chat = "Total time to run crawl in hours: " + str(total_time)
 
 sc.api_call(
   "chat.postMessage",
