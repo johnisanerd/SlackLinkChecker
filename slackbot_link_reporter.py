@@ -33,8 +33,14 @@ print("Time in seconds since the epoch: %s" %time.time())
 
 
 # Run check_links.sh
-command = "bash /home/pi/SlackLinkChecker/check_links.sh"
-send_bash_command(command)
+# command = "bash /home/pi/SlackLinkChecker/check_links.sh"
+command = "bash /home/john/SlackLinkChecker/check_links.sh"
+try:
+    command = "bash /home/john/SlackLinkChecker/check_links.sh"
+    send_bash_command(command)
+except:
+    command = "bash /home/pi/SlackLinkChecker/check_links.sh"
+    send_bash_command(command)
 
 # Filter for things we don't want to show up.
 # Return True if we find something we don't want
