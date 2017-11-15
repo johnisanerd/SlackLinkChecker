@@ -21,4 +21,5 @@
 # linkchecker www.dexterindustries.com --threads=25 --no-status --no-warning --ignore-url=/xmlrpc.php --ignore-url=^mailto --ignore-url=/add-to-cart -ocsv > test.csv
 
 # (Works and takes 29 hours) linkchecker www.dexterindustries.com --complete --ignore-url=/xmlrpc.php --ignore-url=^mailto --ignore-url=/add-to-cart -ocsv > test.csv
-linkchecker www.dexterindustries.com --ignore-url=/xmlrpc.php --ignore-url=^mailto --ignore-url=/add-to-cart -ocsv > test.csv
+# Check to certain recursion level
+linkchecker www.dexterindustries.com --complete --recursion-level=5 --ignore-url=/xmlrpc.php --ignore-url=^mailto --ignore-url=/add-to-cart -ocsv > test.csv

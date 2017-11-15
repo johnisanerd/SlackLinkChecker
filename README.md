@@ -14,5 +14,6 @@ l for [slackapi/python-slackclient](https://github.com/slackapi/python-slackclie
 * [x] For Upload use the command `curl -F file=@test.csv -F title="Hello!" -F content="Hello" -F channels=#website-broken-links -F token=$SLACK_API_TOKEN https://slack.com/api/files.upload `  [Source](https://api.slack.com/methods/files.upload)
 
 Todo:
+* [ ] Find an optimal recursion level for the Pi memory of only a GB.
 * [ ] See if we can pair down overlaps.
 * [ ] Comb through and setup things to remove.
