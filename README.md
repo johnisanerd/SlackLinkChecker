@@ -12,8 +12,12 @@ Done:
 * [x] Add instalcurl -F file=@test.csv -F ti/api/files.uploadontent="Hello" -F channels=#website-broken-links -F token=$SLACK_API_TOKEN https://slack.com/
 l for [slackapi/python-slackclient](https://github.com/slackapi/python-slackclient)
 * [x] For Upload use the command `curl -F file=@test.csv -F title="Hello!" -F content="Hello" -F channels=#website-broken-links -F token=$SLACK_API_TOKEN https://slack.com/api/files.upload `  [Source](https://api.slack.com/methods/files.upload)
+* [x] Find an optimal recursion level for the Pi memory of only a GB.
+* [x] See if we can pair down overlaps.
+* [x] Comb through and setup things to remove.
 
 Todo:
-* [ ] Find an optimal recursion level for the Pi memory of only a GB.
-* [ ] See if we can pair down overlaps.
-* [ ] Comb through and setup things to remove.
+NOTHING!
+
+Records:
+11/17/2017 - Found about 750 broken links.  Tuned up on redirects!
