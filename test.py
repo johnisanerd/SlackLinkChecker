@@ -1,3 +1,5 @@
+# this program is a bit of a playground for testing out ne code.
+
 from slackclient import SlackClient
 import os, sys, datetime
 import csv
